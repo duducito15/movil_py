@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main(List<String> args) {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-        //backgroundColor: Color(0xffe63946),
-        backgroundColor: Colors.blueGrey,
+        //backgroundColor: Colors.deepPurple,
+        backgroundColor: Color(0xfff72585),
         body: SafeArea(
-          child: Text(
-            "Hola Mundo",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
+          child: Container(
+            color: Colors.yellow,
+            child: Text("Hola 1"),
+            height: 200.0,
+            width: 200.0,
+            //margin: EdgeInsets.all(30.0),
+            //margin: EdgeInsets.symmetric(vertical: 50.0, horizontal: 40.0),
+            margin: EdgeInsets.only(left: 80.0, top: 20.0),
+            padding: EdgeInsets.all(30.0),
+            alignment: Alignment.topRight,
           ),
         ),
       ),
