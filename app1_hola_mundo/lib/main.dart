@@ -3,29 +3,20 @@ import 'package:flutter/widgets.dart';
 
 void main(List<String> args) {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
         //backgroundColor: Colors.deepPurple,
-        backgroundColor: Color.fromARGB(255, 225, 172, 196),
+        //backgroundColor: Color.fromARGB(255, 225, 172, 196),
         body: SafeArea(
-          child: Row(
+          child: Column(
             children: [
-              Icon(
-                Icons.wifi,
-                color: Colors.yellow,
-                size: 40.0,
-              ),
-              Icon(
-                Icons.lock_clock,
-                color: Colors.white,
-              ),
-              Icon(
-                Icons.star,
-                color: Colors.red,
-              ),
-              Icon(
-                Icons.location_city,
-                color: Colors.blueAccent,
+              Container(
+                width: 300,
+                height: 300,
+                child: Image.network(
+                  "https://www.gohawaii.com/sites/default/files/styles/double_column_large/public/content-images/Makena%20Beach-Maui.jpg?itok=bMWe-LV",
+                  fit: BoxFit.fill,
+                ),
               ),
             ],
           ),
