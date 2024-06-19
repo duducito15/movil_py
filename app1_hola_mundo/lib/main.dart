@@ -6,17 +6,30 @@ void main(List<String> args) {
     MaterialApp(
       home: Scaffold(
         //backgroundColor: Colors.deepPurple,
-        //backgroundColor: Color.fromARGB(255, 225, 172, 196),
+        backgroundColor: Color.fromARGB(255, 225, 172, 196),
         body: SafeArea(
           child: Column(
             children: [
-              Container(
-                width: 300,
-                height: 300,
-                child: Image.network(
-                  "https://www.gohawaii.com/sites/default/files/styles/double_column_large/public/content-images/Makena%20Beach-Maui.jpg?itok=bMWe-LV",
-                  fit: BoxFit.fill,
-                ),
+              TextButton(
+                onPressed: () {},
+                child: Text("Text Button"),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.check),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  int numero = 100;
+                  print("Presionaste aceptar $numero");
+                },
+                child: Text("Aceptar"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print("Presionaste cancelar");
+                },
+                child: Text("Cancelar"),
               ),
             ],
           ),
