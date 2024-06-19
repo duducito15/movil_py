@@ -3,34 +3,29 @@ import 'package:flutter/widgets.dart';
 
 void main(List<String> args) {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Scaffold(
         //backgroundColor: Colors.deepPurple,
         backgroundColor: Color.fromARGB(255, 225, 172, 196),
         body: SafeArea(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.amberAccent,
+              Icon(
+                Icons.wifi,
+                color: Colors.yellow,
+                size: 40.0,
               ),
-              Container(
-                height: 300,
-                width: 100,
-                color: Colors.blue,
+              Icon(
+                Icons.lock_clock,
+                color: Colors.white,
               ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.redAccent,
+              Icon(
+                Icons.star,
+                color: Colors.red,
               ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.orangeAccent,
+              Icon(
+                Icons.location_city,
+                color: Colors.blueAccent,
               ),
             ],
           ),
