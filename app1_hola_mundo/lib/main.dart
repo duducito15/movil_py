@@ -6,18 +6,39 @@ void main(List<String> args) {
     MaterialApp(
       home: Scaffold(
         //backgroundColor: Colors.deepPurple,
-        backgroundColor: Color(0xfff72585),
+        backgroundColor: Color.fromARGB(255, 225, 172, 196),
         body: SafeArea(
-          child: Container(
-            color: Colors.yellow,
-            child: Text("Hola 1"),
-            height: 200.0,
-            width: 200.0,
-            //margin: EdgeInsets.all(30.0),
-            //margin: EdgeInsets.symmetric(vertical: 50.0, horizontal: 40.0),
-            margin: EdgeInsets.only(left: 80.0, top: 20.0),
-            padding: EdgeInsets.all(30.0),
-            alignment: Alignment.topRight,
+          child: Column(
+            children: [
+              Container(
+                color: Colors.yellow,
+                child: Text("Hola 1"),
+                height: 100.0,
+                width: 100.0,
+                margin: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(30.0),
+                alignment: Alignment.topRight,
+              ),
+              Container(
+                color: Colors.blue,
+                child: Text("Hola 1"),
+                height: 100.0,
+                width: 100.0,
+                margin: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(30.0),
+                alignment: Alignment.topRight,
+              ),
+              Container(
+                color: Colors.redAccent,
+                child: Text("Hola 3"),
+                height: 100.0,
+                width: 100.0,
+                margin: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(30.0),
+                alignment: Alignment.topRight,
+              ),
+              Text("Otro elemento"),
+            ],
           ),
         ),
       ),
