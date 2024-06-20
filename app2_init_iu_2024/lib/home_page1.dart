@@ -71,7 +71,43 @@ class HomePage1 extends StatelessWidget {
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Row(
+                    children: [
+                      Text("By "),
+                      Text(
+                        "Juan Lopez ",
+                        style: TextStyle(
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                      Text("Forbes List"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Hello "),
+                      Text(
+                        "Bold ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text("world!"),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Image.asset(
+                    "assets/img/picture3.jpeg",
+                    height: 250.0,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ],
               ),
             ),
