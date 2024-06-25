@@ -5,6 +5,24 @@ import 'package:audioplayers/audioplayers.dart';
 class HomePage extends StatelessWidget {
   AudioCache audioCache = AudioCache();
 
+  void playNote(int note) {
+    audioCache.play("audio/note$note.wav");
+  }
+
+  Widget buildKey(Color colorKey, int note) {
+    return Expanded(
+      child: Container(
+        color: colorKey,
+        child: TextButton(
+          onPressed: () {
+            playNote(note);
+          },
+          child: Text(""),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,11 +34,17 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {},
-          child: Text("Click!!!"),
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          buildKey(Colors.amber, 1),
+          buildKey(Colors.blue, 2),
+          buildKey(Colors.redAccent, 3),
+          buildKey(Colors.blueAccent, 4),
+          buildKey(Colors.orangeAccent, 5),
+          buildKey(Colors.greenAccent, 6),
+          buildKey(Colors.pinkAccent, 7),
+        ],
       ),
     );
   }
