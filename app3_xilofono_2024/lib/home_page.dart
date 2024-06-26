@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class HomePage extends StatelessWidget {
-  AudioCache audioCache = AudioCache();
-
   void playNote(int note) {
-    audioCache.play("audio/note$note.wav");
+    final player = AudioPlayer();
+    player.setSourceAsset("audio/note$note.wav");
+    player.play(
+      AssetSource("audio/note$note.wav"),
+    );
   }
 
   Widget buildKey(Color colorKey, int note) {
