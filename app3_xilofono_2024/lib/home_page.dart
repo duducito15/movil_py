@@ -39,13 +39,13 @@ class HomePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          buildKey(Colors.amber, 1),
-          buildKey(Colors.blue, 2),
-          buildKey(Colors.redAccent, 3),
-          buildKey(Colors.blueAccent, 4),
-          buildKey(Colors.orangeAccent, 5),
-          buildKey(Colors.greenAccent, 6),
-          buildKey(Colors.pinkAccent, 7),
+          buildKey(Color(0xffe63946), 1),
+          buildKey(Color(0xfff1faee), 2),
+          buildKey(Color(0xffa8dadc), 3),
+          buildKey(Color(0xff457b9d), 4),
+          buildKey(Color(0xff1d3557), 5),
+          buildKey(Color(0xffffb703), 6),
+          buildKey(Color(0xfffb8500), 7),
         ],
       ),
     );
