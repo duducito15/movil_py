@@ -1,9 +1,7 @@
-import 'package:app4_dice_app_2024/home_page.dart';
+import 'package:app5_quiz_app_2024/home_page.dart';
 import 'package:flutter/material.dart';
 
-void main(List<String> args) {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
