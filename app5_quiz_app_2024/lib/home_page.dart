@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int questionNumber = 0;
+
+  List<String> questions = [
+    "¿El hombre llego a la Luna?",
+    "¿El día miércoles tenemos clases de Programación Movil?",
+    "¿Ikaro llego al Sol?",
+    "¿Goku es el Guerrero mas poderos del Universo?",
+  ];
+
+  List<bool> answer = [
+    true,
+    true,
+    false,
+    true,
+  ];
+
+  List<Widget> scoreKeeper = [];
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +30,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Color(0xFF2b2d42),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           "QuizApp",
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -28,10 +49,10 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  "El hombre llego a la Luna?",
+                  questions[questionNumber],
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 30.0,
                     color: Colors.white,
                   ),
                 ),
@@ -41,9 +62,28 @@ class HomePage extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  bool correctAnswer = answer[questionNumber];
+                  if (correctAnswer == true) {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.check,
+                        color: Colors.greenAccent,
+                      ),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.close,
+                        color: Colors.redAccent,
+                      ),
+                    );
+                  }
+                  questionNumber++;
+                  setState(() {});
+                },
                 child: Text("Verdadero"),
                 color: Colors.greenAccent,
               ),
@@ -52,13 +92,36 @@ class HomePage extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  bool correctAnswer = answer[questionNumber];
+                  if (correctAnswer == false) {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.check,
+                        color: Colors.greenAccent,
+                      ),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      Icon(
+                        Icons.close,
+                        color: Colors.redAccent,
+                      ),
+                    );
+                  }
+                  questionNumber++;
+
+                  setState(() {});
+                },
                 child: Text("Falso"),
                 color: Colors.redAccent,
               ),
             ),
+          ),
+          Row(
+            children: scoreKeeper,
           ),
         ],
       ),
