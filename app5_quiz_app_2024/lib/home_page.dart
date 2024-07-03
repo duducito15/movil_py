@@ -11,6 +11,27 @@ class _HomePageState extends State<HomePage> {
 
   QuizBrain quizBrain = QuizBrain();
 
+  checkAnswer(bool userAnswer) {
+    bool correctAnswer = quizBrain.getQuestionAnswer();
+    if (correctAnswer == userAnswer) {
+      scoreKeeper.add(
+        Icon(
+          Icons.check,
+          color: Colors.greenAccent,
+        ),
+      );
+    } else {
+      scoreKeeper.add(
+        Icon(
+          Icons.close,
+          color: Colors.redAccent,
+        ),
+      );
+    }
+    quizBrain.nextQuestion();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,24 +73,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
                 onPressed: () {
-                  bool correctAnswer = quizBrain.getQuestionAnswer();
-                  if (correctAnswer == true) {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.check,
-                        color: Colors.greenAccent,
-                      ),
-                    );
-                  } else {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.close,
-                        color: Colors.redAccent,
-                      ),
-                    );
-                  }
-                  quizBrain.nextQuestion();
-                  setState(() {});
+                  checkAnswer(true);
                 },
                 child: Text("Verdadero"),
                 color: Colors.greenAccent,
@@ -82,24 +86,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
                 onPressed: () {
-                  bool correctAnswer = quizBrain.getQuestionAnswer();
-                  if (correctAnswer == false) {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.check,
-                        color: Colors.greenAccent,
-                      ),
-                    );
-                  } else {
-                    scoreKeeper.add(
-                      Icon(
-                        Icons.close,
-                        color: Colors.redAccent,
-                      ),
-                    );
-                  }
-                  quizBrain.nextQuestion();
-                  setState(() {});
+                  checkAnswer(false);
                 },
                 child: Text("Falso"),
                 color: Colors.redAccent,
