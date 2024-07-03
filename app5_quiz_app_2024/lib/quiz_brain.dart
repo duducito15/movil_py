@@ -1,7 +1,7 @@
 import 'package:app5_quiz_app_2024/question.dart';
 
 class QuizBrain {
-  List<Question> _questions = [
+  final List<Question> _questions = [
     Question(questionText: "¿El hombre llego a la Luna?", questionAnswer: true),
     Question(
         questionText: "¿El día miércoles tenemos clases de Programación Movil?",
@@ -12,11 +12,17 @@ class QuizBrain {
         questionAnswer: true),
   ];
 
-  String getQuestionText(int index) {
-    return _questions[index].questionText;
+  int _questionNumber = 0;
+
+  String getQuestionText() {
+    return _questions[_questionNumber].questionText;
   }
 
-  bool getQuestionAnswer(int index) {
-    return _questions[index].questionAnswer;
+  bool getQuestionAnswer() {
+    return _questions[_questionNumber].questionAnswer;
+  }
+
+  nextQuestion() {
+    _questionNumber++;
   }
 }

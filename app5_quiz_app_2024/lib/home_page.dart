@@ -1,4 +1,3 @@
-import 'package:app5_quiz_app_2024/question.dart';
 import 'package:app5_quiz_app_2024/quiz_brain.dart';
 import 'package:flutter/material.dart';
 
@@ -8,8 +7,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int questionNumber = 0;
-
   List<Widget> scoreKeeper = [];
 
   QuizBrain quizBrain = QuizBrain();
@@ -39,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
-                  quizBrain.getQuestionText(questionNumber),
+                  quizBrain.getQuestionText(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30.0,
@@ -55,8 +52,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
                 onPressed: () {
-                  bool correctAnswer =
-                      quizBrain.getQuestionAnswer(questionNumber);
+                  bool correctAnswer = quizBrain.getQuestionAnswer();
                   if (correctAnswer == true) {
                     scoreKeeper.add(
                       Icon(
@@ -72,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   }
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                   setState(() {});
                 },
                 child: Text("Verdadero"),
@@ -86,8 +82,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
                 onPressed: () {
-                  bool correctAnswer =
-                      quizBrain.getQuestionAnswer(questionNumber);
+                  bool correctAnswer = quizBrain.getQuestionAnswer();
                   if (correctAnswer == false) {
                     scoreKeeper.add(
                       Icon(
@@ -103,8 +98,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   }
-                  questionNumber++;
-
+                  quizBrain.nextQuestion();
                   setState(() {});
                 },
                 child: Text("Falso"),
