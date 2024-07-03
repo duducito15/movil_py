@@ -1,5 +1,7 @@
-import 'package:app5_quiz_app_2024/quiz_brain.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
+
+import 'package:app5_quiz_app_2024/quiz_brain.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,24 +14,41 @@ class _HomePageState extends State<HomePage> {
   QuizBrain quizBrain = QuizBrain();
 
   checkAnswer(bool userAnswer) {
-    bool correctAnswer = quizBrain.getQuestionAnswer();
-    if (correctAnswer == userAnswer) {
-      scoreKeeper.add(
-        Icon(
-          Icons.check,
-          color: Colors.greenAccent,
-        ),
-      );
+    if (quizBrain.isFinished() == true) {
+      // mensaje de finalizacion
+      Alert(
+        context: context,
+        type: AlertType.info,
+        title: "QuizApp",
+        desc: "El cuestionario ha finalizado.",
+        buttons: [
+          DialogButton(
+            child: Text(
+              "Reiniciar",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onPressed: () => Navigator.pop(context),
+            width: 120,
+          )
+        ],
+      ).show();
+      quizBrain.restart();
+      scoreKeeper.clear();
+      setState(() {});
     } else {
-      scoreKeeper.add(
-        Icon(
-          Icons.close,
-          color: Colors.redAccent,
-        ),
-      );
+      bool correctAnswer = quizBrain.getQuestionAnswer();
+      if (correctAnswer == userAnswer) {
+        scoreKeeper.add(
+          Icon(Icons.check, color: Colors.greenAccent),
+        );
+      } else {
+        scoreKeeper.add(
+          Icon(Icons.close, color: Colors.redAccent),
+        );
+      }
+      quizBrain.nextQuestion();
+      setState(() {});
     }
-    quizBrain.nextQuestion();
-    setState(() {});
   }
 
   @override
