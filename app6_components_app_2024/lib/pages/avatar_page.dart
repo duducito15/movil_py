@@ -7,7 +7,7 @@ class AvatarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Avatar Page",
           style: TextStyle(
             color: Colors.white,
@@ -17,15 +17,20 @@ class AvatarPage extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         elevation: 1.0,
         actions: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: NetworkImage(
-              "",
+              'https://fastly.picsum.photos/id/9/250/250.jpg?hmac=tqDH5wEWHDN76mBIWEPzg1in6egMl49qZeguSaH9_VI',
             ),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
           ),
+        ],
+      ),
+      body: Column(
+        children: [
+//FadeInImage(),
         ],
       ),
     );
