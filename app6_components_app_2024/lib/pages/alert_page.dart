@@ -5,7 +5,35 @@ class AlertPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog();
+        return AlertDialog(
+          title: Text("Titulo del AlertDialog"),
+          backgroundColor: Colors.white,
+          content: Text(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend dapibus quam sit amet faucibus. "),
+          actions: [
+            OutlinedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                //backgroundColor: Colors.deepPurple,
+              ),
+              child: Text("Cancelar"),
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              style: OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              child: Text("Aceptar"),
+            ),
+          ],
+        );
       },
     );
   }
