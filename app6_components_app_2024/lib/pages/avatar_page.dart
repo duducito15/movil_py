@@ -18,9 +18,7 @@ class AvatarPage extends StatelessWidget {
         elevation: 1.0,
         actions: [
           const CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://fastly.picsum.photos/id/9/250/250.jpg?hmac=tqDH5wEWHDN76mBIWEPzg1in6egMl49qZeguSaH9_VI',
-            ),
+            backgroundImage: AssetImage("assets/img/persona1.jpg"),
           ),
           IconButton(
             onPressed: () {},
@@ -30,7 +28,12 @@ class AvatarPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-//FadeInImage(),
+          FadeInImage(
+            placeholder: AssetImage("assets/img/loading.gif"),
+            image: AssetImage("assets/img/persona1.jpg"),
+            fadeInDuration: Duration(milliseconds: 1000),
+            fit: BoxFit.contain,
+          ),
         ],
       ),
     );
