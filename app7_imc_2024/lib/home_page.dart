@@ -7,6 +7,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double weight = 70;
+  double height = 175;
 
   @override
   Widget build(BuildContext context) {
@@ -68,11 +69,51 @@ class _HomePageState extends State<HomePage> {
               value: weight,
               min: 20,
               max: 200,
-              // divisions: 1,
+              //divisions: 1,
               onChanged: (double value) {
                 setState(() {
                   weight = value;
                 });
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  "175",
+                  style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF2b2d42),
+                  ),
+                ),
+                SizedBox(
+                  width: 2.0,
+                ),
+                Text(
+                  "cm",
+                  style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 14.0,
+                    color: Color(0xFF2b2d42),
+                  ),
+                ),
+              ],
+            ),
+            Slider(
+              value: height,
+              min: 20,
+              max: 200,
+              //divisions: 1,
+              onChanged: (double value) {
+                setState(
+                  () {
+                    height = value;
+                  },
+                );
               },
             )
           ],
