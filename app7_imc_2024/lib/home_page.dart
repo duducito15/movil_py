@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  double weight = 70;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +64,17 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            Slider(
+              value: weight,
+              min: 20,
+              max: 200,
+              // divisions: 1,
+              onChanged: (double value) {
+                setState(() {
+                  weight = value;
+                });
+              },
+            )
           ],
         ),
       ),
