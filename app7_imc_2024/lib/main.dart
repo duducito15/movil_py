@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
         sliderTheme: SliderThemeData(
-          activeTrackColor: Colors.pink.withOpacity(0.75),
+          activeTrackColor: Color(0xffef233c).withOpacity(0.75),
           inactiveTrackColor: Color(0xFF2b2d42).withOpacity(0.55),
-          overlayColor: Colors.pink.withOpacity(0.3),
-          thumbColor: Colors.pink,
+          overlayColor: Color(0xffef233c).withOpacity(0.3),
+          thumbColor: Color(0xffef233c),
           thumbShape: RoundSliderThumbShape(
             enabledThumbRadius: 12.0,
           ),
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
             overlayRadius: 24.0,
           ),
         ),
+        fontFamily: 'Manrope',
       ),
       home: HomePage(),
     );

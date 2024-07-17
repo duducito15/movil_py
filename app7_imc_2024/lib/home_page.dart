@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
         title: const Text(
           "IMC Calculator App",
           style: TextStyle(
-            fontFamily: 'Manrope',
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -26,11 +25,11 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Bienvenido, selecciona tu peso y altura:",
               style: TextStyle(
-                fontFamily: 'Manrope',
                 fontSize: 15.0,
                 color: Color(0xFF2b2d42),
               ),
@@ -46,7 +45,6 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "75",
                   style: TextStyle(
-                    fontFamily: 'Manrope',
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF2b2d42),
@@ -58,7 +56,6 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "Kg",
                   style: TextStyle(
-                    fontFamily: 'Manrope',
                     fontSize: 14.0,
                     color: Color(0xFF2b2d42),
                   ),
@@ -84,7 +81,6 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "175",
                   style: TextStyle(
-                    fontFamily: 'Manrope',
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF2b2d42),
@@ -96,7 +92,6 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   "cm",
                   style: TextStyle(
-                    fontFamily: 'Manrope',
                     fontSize: 14.0,
                     color: Color(0xFF2b2d42),
                   ),
@@ -126,7 +121,6 @@ class _HomePageState extends State<HomePage> {
                 label: Text(
                   "Calcular",
                   style: TextStyle(
-                    fontFamily: 'Manrope',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -150,9 +144,7 @@ class _HomePageState extends State<HomePage> {
             Text(
               "Resultado: ",
               style: TextStyle(
-                fontFamily: 'Manrope',
                 fontSize: 15.0,
-                //fontWeight: FontWeight.bold,
                 color: Color(0xFF2b2d42),
               ),
             ),
@@ -162,6 +154,40 @@ class _HomePageState extends State<HomePage> {
                 height: 200.0,
                 width: 200.0,
                 fit: BoxFit.contain,
+              ),
+            ),
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    "24.5",
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Color(0xffef233c),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "Normal",
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Color(0xFF2b2d42),
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    "Estas muy bien, sigue comiendo saludable y realiza actividad física",
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Color(0xFF2b2d42),
+                      fontWeight: FontWeight.normal,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
           ],
