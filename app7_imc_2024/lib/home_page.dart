@@ -115,7 +115,55 @@ class _HomePageState extends State<HomePage> {
                   },
                 );
               },
-            )
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            SizedBox(
+              width: double.infinity,
+              height: 50.0,
+              child: ElevatedButton.icon(
+                label: Text(
+                  "Calcular",
+                  style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                icon: Icon(Icons.play_arrow_rounded),
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF2b2d42),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Divider(
+              color: Color(0xFF2b2d42),
+              height: 10.0,
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            Text(
+              "Resultado: ",
+              style: TextStyle(
+                fontFamily: 'Manrope',
+                fontSize: 15.0,
+                //fontWeight: FontWeight.bold,
+                color: Color(0xFF2b2d42),
+              ),
+            ),
+            Center(
+              child: Image.asset(
+                'assets/img/image2.png',
+                height: 200.0,
+                width: 200.0,
+                fit: BoxFit.contain,
+              ),
+            ),
           ],
         ),
       ),
