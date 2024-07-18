@@ -20,20 +20,22 @@ class _HomePageState extends State<HomePage> {
     imc = weight / pow((height / 100), 2);
     if (imc < 18.5) {
       result = "Bajo peso";
-      recomendation = "Come mas, como la Ing Yuliana";
+      recomendation = "Debes alimentarte mejor";
       image = "assets/img/image1.png";
     } else if (imc <= 24.9) {
       result = "Normal";
-      recomendation = "esta bien";
+      recomendation =
+          "Buen trabajo, sigue comiendo saludable y realiza actividad física";
       image = "assets/img/image2.png";
     } else if (imc <= 29.9) {
       result = "Sobrepeso";
-      recomendation = "deja de comer, no seas como la Ing Yuliana";
+      recomendation =
+          "Toma agua simple,evita el consumo de refrescos, jugos o cualquier bebida que contenga azúcar. Realiza actividad física.";
       image = "assets/img/image3.png";
     } else {
       result = "Obesidad";
-      recomendation = "esta muy gordo";
-      image = "assets/img/image3.png";
+      recomendation = "Acude a un especialista, lo importante es tu salud";
+      image = "assets/img/image4.png";
     }
 
     setState(() {});
