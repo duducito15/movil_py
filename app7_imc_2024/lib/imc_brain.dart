@@ -8,8 +8,8 @@ class IMCBrain {
   double imc = 0;
   // Constructor
   IMCBrain({
-    required this.weight,
-    required this.height,
+    this.weight = 0,
+    this.height = 0,
   });
   // Metodos
   double calculateIMC() {
@@ -50,13 +50,13 @@ class IMCBrain {
   String getImage() {
     String image = "";
     if (imc < 18.5) {
-      image = "assets/img/image1.png";
+      image = "image1";
     } else if (imc <= 24.9) {
-      image = "assets/img/image2.png";
+      image = "image2";
     } else if (imc <= 29.9) {
-      image = "assets/img/image3.png";
+      image = "image3";
     } else {
-      image = "assets/img/image4.png";
+      image = "image4";
     }
     return image;
   }

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:app7_imc_2024/imc_brain.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,37 +10,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double weight = 70;
-  double height = 175;
-  double imc = 0;
-  String result = "Normal";
-  String recomendation =
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-  String image = "";
+  double height = 166;
 
-  calculateIMC() {
-    imc = weight / pow((height / 100), 2);
-    if (imc < 18.5) {
-      result = "Bajo peso";
-      recomendation = "Debes alimentarte mejor";
-      image = "assets/img/image1.png";
-    } else if (imc <= 24.9) {
-      result = "Normal";
-      recomendation =
-          "Buen trabajo, sigue comiendo saludable y realiza actividad física";
-      image = "assets/img/image2.png";
-    } else if (imc <= 29.9) {
-      result = "Sobrepeso";
-      recomendation =
-          "Toma agua simple,evita el consumo de refrescos, jugos o cualquier bebida que contenga azúcar. Realiza actividad física.";
-      image = "assets/img/image3.png";
-    } else {
-      result = "Obesidad";
-      recomendation = "Acude a un especialista, lo importante es tu salud";
-      image = "assets/img/image4.png";
-    }
-
-    setState(() {});
-  }
+  IMCBrain indice = IMCBrain();
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +131,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 icon: Icon(Icons.play_arrow_rounded),
                 onPressed: () {
-                  calculateIMC();
+                  indice.weight = weight;
+                  indice.height = height;
+
+                  setState(() {});
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF2b2d42),
@@ -184,7 +160,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Center(
               child: Image.asset(
-                image,
+                'assets/img/${indice.getImage()}.png',
                 height: 200.0,
                 width: 200.0,
                 fit: BoxFit.contain,
@@ -194,7 +170,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Text(
-                    imc.toStringAsFixed(1),
+                    indice.calculateIMC().toStringAsFixed(1),
                     style: TextStyle(
                       fontSize: 30.0,
                       color: Color(0xffef233c),
@@ -202,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    result,
+                    indice.getResult(),
                     style: TextStyle(
                       fontSize: 16.0,
                       color: Color(0xFF2b2d42),
@@ -213,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                     height: 10.0,
                   ),
                   Text(
-                    recomendation,
+                    indice.getRecomendation(),
                     style: TextStyle(
                       fontSize: 14.0,
                       color: Color(0xFF2b2d42),
