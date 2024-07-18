@@ -11,9 +11,31 @@ class _HomePageState extends State<HomePage> {
   double weight = 70;
   double height = 175;
   double imc = 0;
+  String result = "Normal";
+  String recomendation =
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+  String image = "";
 
   calculateIMC() {
     imc = weight / pow((height / 100), 2);
+    if (imc < 18.5) {
+      result = "Bajo peso";
+      recomendation = "Come mas, como la Ing Yuliana";
+      image = "assets/img/image1.png";
+    } else if (imc <= 24.9) {
+      result = "Normal";
+      recomendation = "esta bien";
+      image = "assets/img/image2.png";
+    } else if (imc <= 29.9) {
+      result = "Sobrepeso";
+      recomendation = "deja de comer, no seas como la Ing Yuliana";
+      image = "assets/img/image3.png";
+    } else {
+      result = "Obesidad";
+      recomendation = "esta muy gordo";
+      image = "assets/img/image3.png";
+    }
+
     setState(() {});
   }
 
@@ -160,7 +182,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Center(
               child: Image.asset(
-                'assets/img/image2.png',
+                image,
                 height: 200.0,
                 width: 200.0,
                 fit: BoxFit.contain,
@@ -178,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Text(
-                    "Normal",
+                    result,
                     style: TextStyle(
                       fontSize: 16.0,
                       color: Color(0xFF2b2d42),
@@ -189,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                     height: 10.0,
                   ),
                   Text(
-                    "Estas muy bien, sigue comiendo saludable y realiza actividad física",
+                    recomendation,
                     style: TextStyle(
                       fontSize: 14.0,
                       color: Color(0xFF2b2d42),
