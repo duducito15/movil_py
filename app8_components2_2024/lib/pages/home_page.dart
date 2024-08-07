@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,6 +70,67 @@ class HomePage extends StatelessWidget {
                         fontSize: 14.0,
                         color: Colors.black87,
                       ),
+                    ),
+                    SizedBox(
+                      height: 24.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "\$8900",
+                              style: TextStyle(
+                                color: Color(0xff1b263b),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text("Income"),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 40,
+                          width: 30,
+                          child: VerticalDivider(
+                            color: Colors.black.withOpacity(0.3),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "\$8900",
+                              style: TextStyle(
+                                color: Color(0xff1b263b),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text("Income"),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 40,
+                          width: 30,
+                          child: VerticalDivider(
+                            color: Colors.black.withOpacity(0.3),
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "\$8900",
+                              style: TextStyle(
+                                color: Color(0xff1b263b),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text("Income"),
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
