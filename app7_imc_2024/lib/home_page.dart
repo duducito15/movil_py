@@ -1,9 +1,9 @@
-import 'dart:math';
-
 import 'package:app7_imc_2024/imc_brain.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
