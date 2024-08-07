@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Componets 2 App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.gupterTextTheme(),
+        textTheme: GoogleFonts.robotoFlexTextTheme(),
       ),
       home: HomePage(),
     );
