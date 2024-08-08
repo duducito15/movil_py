@@ -129,7 +129,8 @@ class ListPage extends StatelessWidget {
             leading: CircleAvatar(
               backgroundImage: NetworkImage(teamMap["members"][index]["image"]),
             ),
-            title: Text(),
+            title: Text(teamMap["members"][index]["name"]),
+            subtitle: Text(teamMap["members"][index]["secretIdentity"]),
           );
         },
       ),
