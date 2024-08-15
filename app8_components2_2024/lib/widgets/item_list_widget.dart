@@ -33,8 +33,8 @@ class ItemListWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(18.0),
               color: const Color(0xff3d4584).withOpacity(0.12),
             ),
-            child: const Icon(
-              Icons.arrow_upward,
+            child:  Icon(
+              item["icon"],
             ),
           ),
           const SizedBox(
@@ -57,7 +57,7 @@ class ItemListWidget extends StatelessWidget {
                   height: 2,
                 ),
                 Text(
-                  "Sending Payment to Clients",
+                  item["description"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -69,8 +69,8 @@ class ItemListWidget extends StatelessWidget {
               ],
             ),
           ),
-          const Text(
-            "\$150",
+          Text(
+            "\$ "+ item["Price"].toString(),
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),

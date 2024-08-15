@@ -8,36 +8,42 @@ class HomePage extends StatelessWidget {
       "type": "Sent",
       "description": "Sending Payment to Clients",
       "Price": 150,
+      "icon": Icons.arrow_upward,
     },
     {
       "id": 2,
       "type": "Recive",
       "description": "Receiving salary from company",
       "Price": 750,
+      "icon": Icons.arrow_downward,
     },
     {
       "id": 3,
       "type": "Loan",
       "description": "Loan for the car",
       "Price": 500,
+      "icon": Icons.money,
     },
     {
       "id": 4,
       "type": "Sent",
       "description": "Sending Payment to Clients",
       "Price": 150,
+      "icon": Icons.arrow_upward,
     },
     {
       "id": 5,
       "type": "Recive",
       "description": "Receiving salary from company",
       "Price": 750,
+      "icon": Icons.arrow_upward,
     },
     {
       "id": 6,
       "type": "Loan",
       "description": "Loan for the car",
       "Price": 500,
+     "icon": Icons.arrow_upward,
     },
   ];
 
