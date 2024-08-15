@@ -2,7 +2,44 @@ import 'package:app8_components2_2024/widgets/item_list_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  List<Map<String, dynamic>> data = [
+    {
+      "id": 1,
+      "type": "Sent",
+      "description": "Sending Payment to Clients",
+      "Price": 150,
+    },
+    {
+      "id": 2,
+      "type": "Recive",
+      "description": "Receiving salary from company",
+      "Price": 750,
+    },
+    {
+      "id": 3,
+      "type": "Loan",
+      "description": "Loan for the car",
+      "Price": 500,
+    },
+    {
+      "id": 4,
+      "type": "Sent",
+      "description": "Sending Payment to Clients",
+      "Price": 150,
+    },
+    {
+      "id": 5,
+      "type": "Recive",
+      "description": "Receiving salary from company",
+      "Price": 750,
+    },
+    {
+      "id": 6,
+      "type": "Loan",
+      "description": "Loan for the car",
+      "Price": 500,
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +48,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding:  EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Container(
@@ -175,11 +212,16 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 22.0,
                 ),
-                ItemListWidget(),
-                ItemListWidget(),
-                ItemListWidget(),
-                ItemListWidget(),
-                ItemListWidget(),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemCount: data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return ItemListWidget(
+                      item: data[index],
+                    );
+                  },
+                ),
               ],
             ),
           ),

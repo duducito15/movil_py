@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ItemListWidget extends StatelessWidget {
-  const ItemListWidget({super.key});
+  
+  Map<String, dynamic> item;
+
+  ItemListWidget({required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +40,12 @@ class ItemListWidget extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Sent",
+                  item["type"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
