@@ -54,6 +54,24 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            // el menu parecido al diseño
+            ListTile(
+              leading: Icon(Icons.person, color: Colors.black54,),
+              title: Text("My Profile"),
+            ),
+            ListTile(
+              leading: Icon(Icons.file_copy),
+              title: Text("Portafolio"),
+            ),
+            ListTile(
+              leading: Icon(Icons.lock),
+              title: Text("Change Password"),
+            ),
+            Divider(indent: 12, endIndent: 12,),
+                        ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Logout"),
+            ),
           ],
         ),
       ),
