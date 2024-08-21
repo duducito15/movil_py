@@ -1,8 +1,13 @@
 import 'package:app9_shared_2024/widgets/my_drawer_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool isDarkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +48,11 @@ class HomePage extends StatelessWidget {
             ),
             // Switch(value: true, onChanged: (bool value){}),
             SwitchListTile(
-              value: true,
-              onChanged: (bool value) {},
+              value: isDarkMode,
+              onChanged: (bool value) {
+                isDarkMode = value;
+                setState((){});
+              },
               title: Text("Dark mode"),
             ),
             const SizedBox(
@@ -66,6 +74,24 @@ class HomePage extends StatelessWidget {
               groupValue: 1,
               onChanged: (int? value) {},
               title: Text("Female"),
+            ),
+             const SizedBox(
+              height: 12.0,
+            ),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.save,
+                color: Colors.white,
+              ),
+              label: Text(
+                "Save Data",
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                minimumSize: Size(double.infinity, 50),
+              ),
             ),
           ],
         ),
