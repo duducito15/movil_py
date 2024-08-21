@@ -1,3 +1,4 @@
+import 'package:app9_shared_2024/widgets/my_drawer_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,74 +12,63 @@ class HomePage extends StatelessWidget {
           "Shared Preferences App",
         ),
       ),
-      drawer: Drawer(
+      drawer: MyDrawerWidget(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://images.pexels.com/photos/73873/star-clusters-rosette-nebula-star-galaxies-73873.jpeg"),
-                ),
-              ),
-              child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      radius: 30.0,
-                      backgroundColor: Colors.white,
-                      backgroundImage: NetworkImage(
-                          "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg"),
-                    ),
-                    Text(
-                      "Fiorella Gonzales Torres",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      "Administrador",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  ],
-                ),
+            Text(
+              "Configuración General",
+              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Nombre completo",
               ),
             ),
-            // el menu parecido al diseño
-            ListTile(
-              leading: Icon(Icons.person, color: Colors.black54,),
-              title: Text("My Profile"),
+            const SizedBox(
+              height: 12.0,
             ),
-            ListTile(
-              leading: Icon(Icons.file_copy),
-              title: Text("Portafolio"),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Dirección actual",
+              ),
             ),
-            ListTile(
-              leading: Icon(Icons.lock),
-              title: Text("Change Password"),
+            const SizedBox(
+              height: 12.0,
             ),
-            Divider(indent: 12, endIndent: 12,),
-                        ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text("Logout"),
+            // Switch(value: true, onChanged: (bool value){}),
+            SwitchListTile(
+              value: true,
+              onChanged: (bool value) {},
+              title: Text("Dark mode"),
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Text(
+              "Gender",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            // Radio(value: 0, groupValue: 1, onChanged: (int? value){},),
+            RadioListTile(
+              value: 1,
+              groupValue: 1,
+              onChanged: (int? value) {},
+              title: Text("Male"),
+            ),
+            RadioListTile(
+              value: 1,
+              groupValue: 1,
+              onChanged: (int? value) {},
+              title: Text("Female"),
             ),
           ],
         ),
-      ),
-      body: Column(
-        children: [
-          Text("Body"),
-        ],
       ),
     );
   }
