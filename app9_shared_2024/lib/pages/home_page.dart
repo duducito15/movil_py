@@ -8,6 +8,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isDarkMode = false;
+  int gender = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               value: isDarkMode,
               onChanged: (bool value) {
                 isDarkMode = value;
-                setState((){});
+                setState(() {});
               },
               title: Text("Dark mode"),
             ),
@@ -65,17 +66,23 @@ class _HomePageState extends State<HomePage> {
             // Radio(value: 0, groupValue: 1, onChanged: (int? value){},),
             RadioListTile(
               value: 1,
-              groupValue: 1,
-              onChanged: (int? value) {},
+              groupValue: gender,
+              onChanged: (int? value) {
+                gender = value!;
+                setState(() {});
+              },
               title: Text("Male"),
             ),
             RadioListTile(
-              value: 1,
-              groupValue: 1,
-              onChanged: (int? value) {},
+              value: 2,
+              groupValue: gender,
+              onChanged: (int? value) {
+                gender = value!;
+                setState(() {});
+              },
               title: Text("Female"),
             ),
-             const SizedBox(
+            const SizedBox(
               height: 12.0,
             ),
             ElevatedButton.icon(
