@@ -19,6 +19,8 @@ class _HomePageState extends State<HomePage> {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
     _preferences.setString("fullName", _fullNameController.text);
     _preferences.setString("address", _addressController.text);
+    _preferences.setBool("darkMode", isDarkMode);
+    _preferences.setInt("gender", gender);
     print("Guardando en shared preferences!!!");
   }
 
@@ -26,9 +28,13 @@ class _HomePageState extends State<HomePage> {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
     String name = _preferences.getString("fullName") ?? "-";
     String address = _preferences.getString("address") ?? "-";
+    bool darkMode = _preferences.getBool("darkMode") ?? false;
+    int genero = _preferences.getInt("gender") ?? 0;
 
     print(name);
     print(address);
+    print(darkMode);
+    print(genero);
   }
 
   @override
@@ -110,7 +116,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton.icon(
               onPressed: () {
-                //saveSharedPreferences();
+               // saveSharedPreferences();
                 getSharedPreferences();
               },
               icon: Icon(
