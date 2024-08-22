@@ -14,6 +14,18 @@ class _HomePageState extends State<HomePage> {
 
   saveSharedPreferences() async {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
+    _preferences.setString("myKey", "Men Li Hector Flores Ticona");
+    _preferences.setBool("myBool", false);
+    print("Guardando en shared preferences!!!");
+  }
+
+  getSharedPreferences() async {
+    SharedPreferences _preferences = await SharedPreferences.getInstance();
+    String name = _preferences.getString("myKey") ?? "-";
+    bool res =    _preferences.getBool("myBool") ?? false;
+
+    print(name);
+    print(res);
   }
 
   @override
@@ -92,7 +104,10 @@ class _HomePageState extends State<HomePage> {
               height: 12.0,
             ),
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                //saveSharedPreferences();
+                getSharedPreferences();
+              },
               icon: Icon(
                 Icons.save,
                 color: Colors.white,
