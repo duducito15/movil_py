@@ -38,7 +38,7 @@ class MyProfilePage extends StatelessWidget {
               subtitle: Text("Modo oscuro"),
             ),
             ListTile(
-              leading: Icon(Icons.abc),
+              leading: Icon(Icons.transgender),
               title: Text("Aqui va genero"),
               subtitle: Text("Genero"),
             ),
