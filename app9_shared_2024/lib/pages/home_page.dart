@@ -1,4 +1,6 @@
 import 'package:app9_shared_2024/widgets/my_drawer_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +11,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isDarkMode = false;
   int gender = 1;
+
+  saveSharedPreferences() async {
+    SharedPreferences _preferences = await SharedPreferences.getInstance();
+  }
 
   @override
   Widget build(BuildContext context) {
