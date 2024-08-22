@@ -1,4 +1,5 @@
 import 'package:app9_shared_2024/widgets/my_drawer_widget.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
@@ -9,23 +10,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
   bool isDarkMode = false;
   int gender = 1;
 
   saveSharedPreferences() async {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
-    _preferences.setString("myKey", "Men Li Hector Flores Ticona");
-    _preferences.setBool("myBool", false);
+    _preferences.setString("fullName", _fullNameController.text);
+    _preferences.setString("address", _addressController.text);
     print("Guardando en shared preferences!!!");
   }
 
   getSharedPreferences() async {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
-    String name = _preferences.getString("myKey") ?? "-";
-    bool res =    _preferences.getBool("myBool") ?? false;
+    String name = _preferences.getString("fullName") ?? "-";
+    String address = _preferences.getString("address") ?? "-";
 
     print(name);
-    print(res);
+    print(address);
   }
 
   @override
@@ -50,6 +53,7 @@ class _HomePageState extends State<HomePage> {
               height: 12.0,
             ),
             TextField(
+              controller: _fullNameController,
               decoration: InputDecoration(
                 hintText: "Nombre completo",
               ),
@@ -58,6 +62,7 @@ class _HomePageState extends State<HomePage> {
               height: 12.0,
             ),
             TextField(
+              controller: _addressController,
               decoration: InputDecoration(
                 hintText: "Dirección actual",
               ),
