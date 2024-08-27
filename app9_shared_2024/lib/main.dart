@@ -1,7 +1,13 @@
 import 'package:app9_shared_2024/pages/home_page.dart';
+import 'package:app9_shared_2024/utils/shared_global.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedGlobal preference = SharedGlobal();
+  preference.initSharedPreferences;
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedGlobal {
-  static final SharedGlobal myInstance = SharedGlobal();
+  static final SharedGlobal myInstance = SharedGlobal._instance();
 
   SharedGlobal._instance();
 
@@ -22,4 +22,6 @@ class SharedGlobal {
   String get fullName{
     return _preferences.getString("fullName") ?? "-";
   }
+
+
 }
