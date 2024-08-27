@@ -7,9 +7,10 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePageState extends State<MyProfilePage> {
-  
   String fullName = "";
   String address = "";
+  bool darkMode = true;
+  int genero = 0;
 
   @override
   void initState() {
@@ -19,12 +20,13 @@ class _MyProfilePageState extends State<MyProfilePage> {
 
   getSharedPreferences() async {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
-     fullName = _preferences.getString("fullName") ?? "-";
-     address = _preferences.getString("address") ?? "-";
-     setState(() {   
-     });
-     print(fullName);
-     print(address);
+    fullName = _preferences.getString("fullName") ?? "-";
+    address = _preferences.getString("address") ?? "-";
+    darkMode = _preferences.getBool("darkMode") ?? false;
+    genero = _preferences.getInt("gender") ?? 0;
+    setState(() {});
+    print(fullName);
+    print(address);
   }
 
   @override
@@ -57,12 +59,12 @@ class _MyProfilePageState extends State<MyProfilePage> {
             ),
             ListTile(
               leading: Icon(Icons.dark_mode),
-              title: Text("Activo"),
+              title: Text(darkMode.toString()),
               subtitle: Text("Modo oscuro"),
             ),
             ListTile(
               leading: Icon(Icons.transgender),
-              title: Text("Aqui va genero"),
+              title: Text(genero.toString()),
               subtitle: Text("Genero"),
             ),
           ],
