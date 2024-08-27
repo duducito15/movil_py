@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class MyProfilePage extends StatelessWidget {
-  const MyProfilePage({super.key});
+class MyProfilePage extends StatefulWidget {
+  @override
+  State<MyProfilePage> createState() => _MyProfilePageState();
+}
+
+class _MyProfilePageState extends State<MyProfilePage> {
+  
+  String fullName = "";
+  String address = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getSharedPreferences();
+  }
+
+  getSharedPreferences() async {
+    SharedPreferences _preferences = await SharedPreferences.getInstance();
+     fullName = _preferences.getString("fullName") ?? "-";
+     address = _preferences.getString("address") ?? "-";
+     setState(() {   
+     });
+     print(fullName);
+     print(address);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +43,16 @@ class MyProfilePage extends StatelessWidget {
               style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 12.0, 
+              height: 12.0,
             ),
-            
             ListTile(
               leading: Icon(Icons.person),
-              title: Text("Aqui va el nombre"),
+              title: Text(fullName),
               subtitle: Text("Nombre completo"),
             ),
             ListTile(
               leading: Icon(Icons.location_city),
-              title: Text("Aqui va la direccion"),
+              title: Text(address),
               subtitle: Text("Dirección"),
             ),
             ListTile(

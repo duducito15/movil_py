@@ -116,8 +116,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton.icon(
               onPressed: () {
-               // saveSharedPreferences();
-                getSharedPreferences();
+                saveSharedPreferences();
               },
               icon: Icon(
                 Icons.save,
