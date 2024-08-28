@@ -1,6 +1,5 @@
+import 'package:app10_taskdb_2024/db/db_admin.dart';
 import 'package:flutter/material.dart';
-
-import 'package:sqflite/sqflite.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,7 +7,23 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Home Page"),),
+      appBar: AppBar(
+        title: Text("Home Page"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                DbAdmin.db.initDatabase();
+                print("Creando base de datos");
+              },
+              child: Text("Mostrar data"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
