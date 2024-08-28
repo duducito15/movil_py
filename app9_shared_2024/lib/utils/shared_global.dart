@@ -1,27 +1,33 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedGlobal {
-  static final SharedGlobal myInstance = SharedGlobal._instance();
+  static final SharedGlobal myInstance = SharedGlobal.instance();
 
-  SharedGlobal._instance();
+  SharedGlobal.instance();
 
   factory SharedGlobal() {
     return myInstance;
   }
 
-  late SharedPreferences _preferences;
+  late SharedPreferences preferences;
 
   Future<void> initSharedPreferences() async {
-    _preferences = await SharedPreferences.getInstance();
+    preferences = await SharedPreferences.getInstance();
   }
 
-  set fullName(String value){
-    _preferences.setString("fullName", value);
+  set fullName(String value) {
+    preferences.setString("fullName", value);
   }
 
-  String get fullName{
-    return _preferences.getString("fullName") ?? "-";
+  String get fullName {
+    return preferences.getString("fullName") ?? "-";
   }
 
+  set address(String value) {
+    preferences.setString("address", value);
+  }
 
+  String get address {
+    return preferences.getString("address") ?? "-";
+  }
 }

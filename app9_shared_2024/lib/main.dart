@@ -2,10 +2,10 @@ import 'package:app9_shared_2024/pages/home_page.dart';
 import 'package:app9_shared_2024/utils/shared_global.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedGlobal preference = SharedGlobal();
-  preference.initSharedPreferences;
+  await preference.initSharedPreferences();
   runApp(const MyApp());
 }
 

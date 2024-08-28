@@ -1,5 +1,6 @@
+import 'package:app9_shared_2024/utils/shared_global.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 class MyProfilePage extends StatefulWidget {
   @override
@@ -7,9 +8,10 @@ class MyProfilePage extends StatefulWidget {
 }
 
 class _MyProfilePageState extends State<MyProfilePage> {
+  
   String fullName = "";
   String address = "";
-  bool darkMode = true;
+  bool darkMode = false;
   int genero = 0;
 
   @override
@@ -18,19 +20,19 @@ class _MyProfilePageState extends State<MyProfilePage> {
     getSharedPreferences();
   }
 
-  getSharedPreferences() async {
-    SharedPreferences _preferences = await SharedPreferences.getInstance();
-    fullName = _preferences.getString("fullName") ?? "-";
-    address = _preferences.getString("address") ?? "-";
-    darkMode = _preferences.getBool("darkMode") ?? false;
-    genero = _preferences.getInt("gender") ?? 0;
+  getSharedPreferences()  {
+    
+    fullName  = SharedGlobal().fullName;
+    address = SharedGlobal().address;
     setState(() {});
     print(fullName);
-    print(address);
+    
   }
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My Profile"),
