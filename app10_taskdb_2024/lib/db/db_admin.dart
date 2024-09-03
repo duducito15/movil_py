@@ -12,16 +12,16 @@ class DbAdmin {
 
   DbAdmin.instance();
 
-  checkDatabase() {
+  Future<Database?> checkDatabase() async {
     if (myDatabase != null) {
       return myDatabase;
     }
 
-    myDatabase = initDatabase();
+    myDatabase = await initDatabase();
     return myDatabase;
   }
 
-  initDatabase() async {
+  Future<Database> initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = join(directory.path, "TaskDB.db");
     print("creando base de datos !!!!");
@@ -30,8 +30,29 @@ class DbAdmin {
       version: 1,
       onOpen: (db) {},
       onCreate: (Database dbx, int version) async {
-       await dbx.execute("CREATE TABLE TASK(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, status TEXT, otro TEXT)");
+        await dbx.execute(
+            "CREATE TABLE TASK(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, status TEXT)");
       },
     );
+  }
+
+  insertRawTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.rawInsert(
+        "INSERT INTO TASK(title, description, status) VALUES('Ir a la U','Para apoyar a la huelga', 'Incompleto')");
+    print(res);
+  }
+
+  insertTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.insert(
+      "TASK",
+      {
+        "title":"Ir al mercado",
+        "description" : "Comprar viveres para la huelga",
+        "status" : "no realizado",
+      },
+    );
+    print(res);
   }
 }
