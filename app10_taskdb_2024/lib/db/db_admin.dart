@@ -24,12 +24,13 @@ class DbAdmin {
   initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = join(directory.path, "TaskDB.db");
+    print("creando base de datos !!!!");
     return await openDatabase(
       path,
       version: 1,
       onOpen: (db) {},
       onCreate: (Database dbx, int version) async {
-       await dbx.execute("CREATE TABLE TASK(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, status TEXT)");
+       await dbx.execute("CREATE TABLE TASK(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, status TEXT, otro TEXT)");
       },
     );
   }
