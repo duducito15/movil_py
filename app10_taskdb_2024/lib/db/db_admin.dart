@@ -67,4 +67,35 @@ class DbAdmin {
     List tasks = await db!.query("TASK");
     print(tasks);
   }
+
+  updateRawTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.rawUpdate(
+        "UPDATE TASK SET title = 'Ir a la disco', description = 'Para tomar hasta trapear el piso', status = 'realizado' WHERE id = 2 ");
+    print(res);
+  }
+
+  updateTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.update(
+        "TASK",
+        {
+          "title": "Ir al Gym",
+          "description": "Para tener un cuerpazo como el Men Lee",
+          "status": "no realizado",
+        },
+        where: "id = 3");
+  }
+
+  deleteRawTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.rawDelete("DELETE FROM TASK WHERE id = 4");
+    print(res);
+  }
+
+  deleteTask() async {
+    Database? db = await checkDatabase();
+    int res = await db!.delete("TASK", where: "id = 6");
+    print(res);
+  }
 }

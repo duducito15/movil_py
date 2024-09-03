@@ -29,6 +29,22 @@ class HomePage extends StatelessWidget {
               },
               child: Text("Insertar Task"),
             ),
+
+             ElevatedButton(
+              onPressed: () {
+                DbAdmin.db.updateTask();
+                print("Tarea actualizada!!");
+              },
+              child: Text("Actualizar Task"),
+            ),
+
+                  ElevatedButton(
+              onPressed: () {
+                DbAdmin.db.deleteTask();
+                print("Tarea eliminada!!");
+              },
+              child: Text("Eliminar Task"),
+            ),
           ],
         ),
       ),
