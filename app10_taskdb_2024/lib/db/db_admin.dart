@@ -48,11 +48,23 @@ class DbAdmin {
     int res = await db!.insert(
       "TASK",
       {
-        "title":"Ir al mercado",
-        "description" : "Comprar viveres para la huelga",
-        "status" : "no realizado",
+        "title": "Ir al mercado",
+        "description": "Comprar viveres para la huelga",
+        "status": "no realizado",
       },
     );
     print(res);
+  }
+
+  getRawTask() async {
+    Database? db = await checkDatabase();
+    List tasks = await db!.rawQuery("SELECT * FROM TASK");
+    print(tasks);
+  }
+
+  getTask() async {
+    Database? db = await checkDatabase();
+    List tasks = await db!.query("TASK");
+    print(tasks);
   }
 }
