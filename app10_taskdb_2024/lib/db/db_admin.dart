@@ -24,7 +24,6 @@ class DbAdmin {
   Future<Database> initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = join(directory.path, "TaskDB.db");
-    print("creando base de datos !!!!");
     return await openDatabase(
       path,
       version: 1,
@@ -62,10 +61,11 @@ class DbAdmin {
     print(tasks);
   }
 
-  getTask() async {
+  Future<List<Map<String,dynamic>>> getTask() async {
     Database? db = await checkDatabase();
-    List tasks = await db!.query("TASK");
-    print(tasks);
+    List<Map<String, dynamic>> tasks = await db!.query("TASK");
+    //print(tasks);
+    return tasks;
   }
 
   updateRawTask() async {
