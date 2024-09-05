@@ -1,5 +1,6 @@
 import 'package:app10_taskdb_2024/db/db_admin.dart';
 import 'package:app10_taskdb_2024/models/task_model.dart';
+import 'package:app10_taskdb_2024/widget/my_form_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,66 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isFinished = false;
+
 
   showDialogForm() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Agregar tarea"),
-              SizedBox(
-                height: 6.0,
-              ),
-              TextField(
-                decoration: InputDecoration(hintText: "Título"),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              TextField(
-                maxLines: 2,
-                decoration: InputDecoration(hintText: "Descripción"),
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Row(
-                children: [
-                  Text("Estado: "),
-                  Checkbox(
-                    value: isFinished,
-                    onChanged: (value) {
-                      isFinished = value!;
-                      setState(() {});
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 6.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text("Cancelar"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text("Aceptar"),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
+        return MyFormWidget();
       },
     );
   }
