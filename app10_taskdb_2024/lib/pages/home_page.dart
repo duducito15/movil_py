@@ -8,6 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isFinished = false;
+
   showDialogForm() {
     showDialog(
       context: context,
@@ -30,11 +32,31 @@ class _HomePageState extends State<HomePage> {
                 maxLines: 2,
                 decoration: InputDecoration(hintText: "Descripción"),
               ),
+              SizedBox(
+                height: 6.0,
+              ),
+              Row(
+                children: [
+                  Text("Estado: "),
+                  Checkbox(
+                    value: isFinished,
+                    onChanged: (value) {
+                      isFinished = value!;
+                      setState(() {});
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 6.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: Text("Cancelar"),
                   ),
                   ElevatedButton(
