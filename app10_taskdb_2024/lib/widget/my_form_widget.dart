@@ -8,6 +8,8 @@ class MyFormWidget extends StatefulWidget {
 }
 
 class _MyFormWidgetState extends State<MyFormWidget> {
+  final _formKey = GlobalKey<FormState>();
+
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
@@ -48,61 +50,79 @@ class _MyFormWidgetState extends State<MyFormWidget> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text("Agregar tarea"),
-          SizedBox(
-            height: 6.0,
-          ),
-          TextField(
-            controller: _titleController,
-            decoration: InputDecoration(hintText: "Título"),
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
-          TextField(
-            controller: _descriptionController,
-            maxLines: 2,
-            decoration: InputDecoration(hintText: "Descripción"),
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
-          Row(
-            children: [
-              Text("Estado: "),
-              Checkbox(
-                value: isFinished,
-                onChanged: (value) {
-                  isFinished = value!;
-                  setState(() {});
-                },
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Cancelar"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  addTask();
-                },
-                child: Text("Aceptar"),
-              ),
-            ],
-          ),
-        ],
+      content: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Agregar tarea"),
+            SizedBox(
+              height: 6.0,
+            ),
+            TextFormField(
+              controller: _titleController,
+              decoration: InputDecoration(hintText: "Título"),
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return "El campo es obligatorio";
+                }
+
+                return null;
+              },
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            TextFormField(
+              controller: _descriptionController,
+              maxLines: 2,
+              decoration: InputDecoration(hintText: "Descripción"),
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return "El campo es obligatorio";
+                }
+
+                return null;
+              },
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            Row(
+              children: [
+                Text("Estado: "),
+                Checkbox(
+                  value: isFinished,
+                  onChanged: (value) {
+                    isFinished = value!;
+                    setState(() {});
+                  },
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 6.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("Cancelar"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    //addTask();
+                    if (_formKey.currentState!.validate()) {}
+                  },
+                  child: Text("Aceptar"),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
