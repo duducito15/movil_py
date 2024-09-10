@@ -9,18 +9,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   showDialogForm() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return MyFormWidget();
       },
-    );
+    ).then((value) {
+      setState(() {});
+    });
   }
-
-
 
   @override
   Widget build(BuildContext context) {

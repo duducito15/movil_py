@@ -16,35 +16,37 @@ class _MyFormWidgetState extends State<MyFormWidget> {
   bool isFinished = false;
 
   addTask() {
-    TaskModel taskModel = TaskModel(
-      title: _titleController.text,
-      description: _descriptionController.text,
-      status: isFinished.toString(),
-    );
-    DbAdmin.db.insertTask(taskModel).then((value) {
-      if (value > 0) {
-        Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            behavior: SnackBarBehavior.floating,
-            backgroundColor: Colors.indigo,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+    if (_formKey.currentState!.validate()) {
+      TaskModel taskModel = TaskModel(
+        title: _titleController.text,
+        description: _descriptionController.text,
+        status: isFinished.toString(),
+      );
+      DbAdmin.db.insertTask(taskModel).then((value) {
+        if (value > 0) {
+          Navigator.pop(context);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.indigo,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              duration: Duration(milliseconds: 1400),
+              content: Row(
+                children: [
+                  Icon(Icons.check_circle, color: Colors.white),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text("Tarea registrada con éxito"),
+                ],
+              ),
             ),
-            duration: Duration(milliseconds: 1400),
-            content: Row(
-              children: [
-                Icon(Icons.check_circle, color: Colors.white),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text("Tarea registrada con éxito")
-              ],
-            ),
-          ),
-        );
-      }
-    });
+          );
+        }
+      });
+    }
   }
 
   @override
@@ -114,8 +116,8 @@ class _MyFormWidgetState extends State<MyFormWidget> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    //addTask();
-                    if (_formKey.currentState!.validate()) {}
+                    addTask();
+                    
                   },
                   child: Text("Aceptar"),
                 ),
