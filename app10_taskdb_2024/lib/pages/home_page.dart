@@ -20,6 +20,32 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  deleteTask(int taskId) {
+    DbAdmin.db.deleteTask(taskId).then(
+      (value) {
+        if (value > 0) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              backgroundColor: Colors.indigo,
+              content: Row(
+                children: [
+                  Icon(
+                    Icons.check_circle,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10.0,
+                  ),
+                  Text("Tarea eliminada"),
+                ],
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +66,29 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
               itemCount: myTasks.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(myTasks[index].title),
-                  subtitle: Text(myTasks[index].description),
-                  trailing: Text(myTasks[index].id.toString()),
+                return Dismissible(
+                  key: Key(index.toString()),
+                  // confirmDismiss: (DismissDirection direction) async {
+                  // return true;
+                  //},
+                  direction: DismissDirection.startToEnd,
+                  background: Container(
+                    color: Colors.redAccent,
+                  ),
+                  onDismissed: (DismissDirection direction) {
+                    deleteTask(myTasks[index].id!);
+                  },
+                  child: ListTile(
+                    title: Text(myTasks[index].title),
+                    subtitle: Text(myTasks[index].description),
+                    trailing: IconButton(
+                      onPressed: () {
+                        //
+                        showDialogForm();
+                      },
+                      icon: Icon(Icons.edit),
+                    ),
+                  ),
                 );
               },
             );

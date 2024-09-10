@@ -95,9 +95,9 @@ class DbAdmin {
     print(res);
   }
 
-  deleteTask() async {
+  Future<int> deleteTask(int id) async {
     Database? db = await checkDatabase();
-    int res = await db!.delete("TASK", where: "id = 6");
-    print(res);
+    int res = await db!.delete("TASK", where: "id = $id");
+    return res;
   }
 }
