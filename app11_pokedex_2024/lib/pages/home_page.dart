@@ -1,17 +1,29 @@
+import 'dart:convert';
+
+import 'package:app11_pokedex_2024/ui/widgets/item_pokemon_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
+  List pokemons = [];
+
   getDataPokemon() async {
     Uri _uri = Uri.parse(
         "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json");
     http.Response response = await http.get(_uri);
-    print(response.statusCode);
-    print(response.body);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> myMap = json.decode(response.body);
+      pokemons = myMap["pokemon"];
+      //print(pokemons[0]["img"]);
+      pokemons.forEach((e) {
+        print(e["type"]);
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    getDataPokemon();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -31,93 +43,14 @@ class HomePage extends StatelessWidget {
                   height: 14.0,
                 ),
                 GridView.count(
+                  physics: ScrollPhysics(),
                   shrinkWrap: true,
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
                   crossAxisSpacing: 12,
                   childAspectRatio: 1.3,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.green.shade300,
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            child: Image.asset(
-                              "assets/images/pokeball.png",
-                              height: 120,
-                              color: Colors.white.withOpacity(0.27),
-                            ),
-                            bottom: -30,
-                            right: -30,
-                          ),
-                          Positioned(
-                            child: Image.asset(
-                              "assets/images/bulbasaur.png",
-                              height: 100,
-                            ),
-                            bottom: -10,
-                            right: -5,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 15.0,
-                              horizontal: 10.0,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Bulbasaur",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 14.0,
-                                    vertical: 4.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.25),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Text(
-                                    "Grass",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 6,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 14.0,
-                                    vertical: 4.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.25),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Text(
-                                    "Poison",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    ItemPokemonWidget(),
                   ],
                 )
               ],
