@@ -32,7 +32,10 @@ class ItemPokemonWidget extends StatelessWidget {
               img,
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
-                return Text("IMAGEN");
+                return Image.asset(
+                  "assets/images/whoisthat.png",
+                  height: 100,
+                );
               },
             ),
             bottom: -10,
@@ -72,22 +75,6 @@ class ItemPokemonWidget extends StatelessWidget {
                 ),
                 SizedBox(
                   height: 6,
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 14.0,
-                    vertical: 4.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.25),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Text(
-                    "Poison",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
                 ),
               ],
             ),
