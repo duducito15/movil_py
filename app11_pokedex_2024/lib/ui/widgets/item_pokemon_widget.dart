@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 class ItemPokemonWidget extends StatelessWidget {
   String name;
   String img;
+  List<String> type;
 
   ItemPokemonWidget({
     required this.name,
     required this.img,
+    required this.type,
   });
 
   @override
   Widget build(BuildContext context) {
+    // print(type);
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.green.shade300,

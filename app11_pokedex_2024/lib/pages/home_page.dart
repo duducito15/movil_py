@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //getDataPokemon();
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -62,10 +63,14 @@ class _HomePageState extends State<HomePage> {
                   crossAxisSpacing: 12,
                   childAspectRatio: 1.3,
                   children: pokemons
-                      .map((e) => ItemPokemonWidget(
-                            name: e["name"],
-                            img: e["img"],
-                          ))
+                      .map(
+                        (e) => ItemPokemonWidget(
+                          name: e["name"],
+                          img: e["img"],
+                          type:
+                              List<String>.from(e["type"].map((item) => item)),
+                        ),
+                      )
                       .toList(),
                 )
               ],
