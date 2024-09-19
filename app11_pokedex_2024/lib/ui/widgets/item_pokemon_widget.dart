@@ -26,7 +26,9 @@ class ItemPokemonWidget extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (contex) => DetailPage(),
+            builder: (contex) => DetailPage(
+              pokemon: pokemon,
+            ),
           ),
         );
       },

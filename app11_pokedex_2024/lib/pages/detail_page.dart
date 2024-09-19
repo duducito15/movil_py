@@ -1,9 +1,14 @@
+import 'package:app11_pokedex_2024/models/pokemon_model.dart';
 import 'package:app11_pokedex_2024/ui/widgets/item_data_widget.dart';
 import 'package:app11_pokedex_2024/ui/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({super.key});
+  PokemonModel pokemon;
+
+  DetailPage({
+    required this.pokemon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +50,7 @@ class DetailPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Bulbasaur",
+                      pokemon.name,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 36.0,
@@ -56,15 +61,14 @@ class DetailPage extends StatelessWidget {
                       height: 6.0,
                     ),
                     Row(
-                      children: [
-                        ItemTypeWidget(text: "Grass"),
-                        ItemTypeWidget(text: "Poison"),
-                      ],
+                      children: pokemon.type
+                          .map((e) => ItemTypeWidget(text: e))
+                          .toList(),
                     ),
                   ],
                 ),
                 Text(
-                  "#001",
+                  "#${pokemon.num}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
@@ -100,7 +104,7 @@ class DetailPage extends StatelessWidget {
                             alignment: Alignment.topCenter,
                             child: Container(
                               child: Image.network(
-                                "http://www.serebii.net/pokemongo/pokemon/001.png",
+                                pokemon.img,
                                 errorBuilder: (BuildContext context,
                                     Object exception, StackTrace? stackTrace) {
                                   return Image.asset(
@@ -124,10 +128,10 @@ class DetailPage extends StatelessWidget {
                                 ),
                               ),
                               // aqui va
-                              ItemDataWidget(),
-                              ItemDataWidget(),
-                              ItemDataWidget(),
-                              ItemDataWidget(),
+                              ItemDataWidget(
+                                title: "Peso",
+                                data: "60 k",
+                              ),
                             ],
                           ),
                         ),
