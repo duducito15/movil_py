@@ -1,3 +1,4 @@
+import 'package:app11_pokedex_2024/ui/widgets/item_data_widget.dart';
 import 'package:app11_pokedex_2024/ui/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -122,12 +123,11 @@ class DetailPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  Text("Peso: "),
-                                  Text("0.71 k"),
-                                ],
-                              )
+                              // aqui va
+                              ItemDataWidget(),
+                              ItemDataWidget(),
+                              ItemDataWidget(),
+                              ItemDataWidget(),
                             ],
                           ),
                         ),

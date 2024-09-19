@@ -72,9 +72,10 @@ class _HomePageState extends State<HomePage> {
                   children: pokemonModel
                       .map(
                         (e) => ItemPokemonWidget(
-                          name: e.name,
-                          img: e.img,
-                          type: e.type,
+                          // name: e.name,
+                          // img: e.img,
+                          // type: e.type,
+                          pokemon: e,
                         ),
                       )
                       .toList(),

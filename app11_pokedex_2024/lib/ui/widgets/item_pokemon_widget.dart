@@ -1,21 +1,25 @@
+import 'package:app11_pokedex_2024/models/pokemon_model.dart';
 import 'package:app11_pokedex_2024/pages/detail_page.dart';
 import 'package:app11_pokedex_2024/ui/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
-  String name;
-  String img;
-  List<String> type;
+  // String name;
+  // String img;
+  // List<String> type;
+
+  PokemonModel pokemon;
 
   ItemPokemonWidget({
-    required this.name,
-    required this.img,
-    required this.type,
+    // required this.name,
+    // required this.img,
+    // required this.type,
+    required this.pokemon,
   });
 
   @override
   Widget build(BuildContext context) {
-    // print(type);
+    //print(type);
 
     return GestureDetector(
       onTap: () {
@@ -44,7 +48,7 @@ class ItemPokemonWidget extends StatelessWidget {
             ),
             Positioned(
               child: Image.network(
-                img,
+                pokemon.img,
                 errorBuilder: (BuildContext context, Object exception,
                     StackTrace? stackTrace) {
                   return Image.asset(
@@ -65,14 +69,14 @@ class ItemPokemonWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    pokemon.name,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  ...type
+                  ...pokemon.type
                       .map((e) => ItemTypeWidget(
                             text: e,
                           ))
