@@ -129,8 +129,8 @@ class DetailPage extends StatelessWidget {
                               ),
                               // aqui va
                               ItemDataWidget(
-                                title: "Peso",
-                                data: "60 k",
+                                title: "Altura",
+                                data: pokemon.height,
                               ),
                             ],
                           ),

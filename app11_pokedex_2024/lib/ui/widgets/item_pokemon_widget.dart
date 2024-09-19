@@ -1,5 +1,6 @@
 import 'package:app11_pokedex_2024/models/pokemon_model.dart';
 import 'package:app11_pokedex_2024/pages/detail_page.dart';
+import 'package:app11_pokedex_2024/ui/general/colors.dart';
 import 'package:app11_pokedex_2024/ui/widgets/item_type_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class ItemPokemonWidget extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.green.shade300,
+          color: colorsPokemon[pokemon.type[0]],
           borderRadius: BorderRadius.circular(18.0),
         ),
         child: Stack(
