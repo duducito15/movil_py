@@ -83,7 +83,7 @@ class DetailPage extends StatelessWidget {
                 flex: 8,
                 child: SizedBox(
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
@@ -94,12 +94,19 @@ class DetailPage extends StatelessWidget {
                       clipBehavior: Clip.none,
                       children: [
                         Positioned.fill(
-                          top: -90,
+                          top: -140,
                           child: Align(
                             alignment: Alignment.topCenter,
                             child: Container(
                               child: Image.network(
                                 "http://www.serebii.net/pokemongo/pokemon/001.png",
+                                errorBuilder: (BuildContext context,
+                                    Object exception, StackTrace? stackTrace) {
+                                  return Image.asset(
+                                    "assets/images/whoisthat.png",
+                                  );
+                                },
+                                scale: 0.63,
                               ),
                             ),
                           ),
@@ -115,8 +122,12 @@ class DetailPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Text("Peso: "),
-                              Text("0.71 k"),
+                              Row(
+                                children: [
+                                  Text("Peso: "),
+                                  Text("0.71 k"),
+                                ],
+                              )
                             ],
                           ),
                         ),
