@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Clone Youtube App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: false,
-      ),
+      // theme: ThemeData(
+      //   useMaterial3: false,
+      // ),
       home: InitPage(),
     );
   }
