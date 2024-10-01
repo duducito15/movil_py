@@ -47,13 +47,22 @@ class HomePage extends StatelessWidget {
                       thickness: 1.0,
                     ),
                   ),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
-                  ItemFilterWidget(),
+                  ItemFilterWidget(
+                    texto: "Todos",
+                    isSelected: true,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Mixes",
+                    isSelected: false,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Música",
+                    isSelected: false,
+                  ),
+                  ItemFilterWidget(
+                    texto: "Programación",
+                    isSelected: false,
+                  ),
                 ],
               ),
             )
