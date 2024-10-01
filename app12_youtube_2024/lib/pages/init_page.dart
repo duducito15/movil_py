@@ -23,6 +23,7 @@ class _InitPageState extends State<InitPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBrandPrimaryColor,
       appBar: AppBar(
         backgroundColor: kBrandPrimaryColor,
         title: Image.asset(
