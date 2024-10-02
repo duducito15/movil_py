@@ -1,10 +1,9 @@
 import 'package:app12_youtube_2024/ui/general/colors.dart';
 import 'package:app12_youtube_2024/ui/widgets/item_filter_widget.dart';
+import 'package:app12_youtube_2024/ui/widgets/item_video_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -65,7 +64,10 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            ItemVideoWidget(),
+            ItemVideoWidget(),
+            ItemVideoWidget(),
           ],
         ),
       ),
