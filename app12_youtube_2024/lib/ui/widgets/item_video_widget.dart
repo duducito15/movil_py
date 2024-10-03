@@ -1,7 +1,12 @@
+import 'package:app12_youtube_2024/models/video_model.dart';
 import 'package:flutter/material.dart';
 
 class ItemVideoWidget extends StatelessWidget {
-  const ItemVideoWidget({super.key});
+  VideoModel videoModel;
+
+  ItemVideoWidget({
+    required this.videoModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class ItemVideoWidget extends StatelessWidget {
           Stack(
             children: [
               Image.network(
-                "https://images.pexels.com/photos/442587/pexels-photo-442587.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                videoModel.snippet.thumbnails.high.url,
                 width: double.infinity,
                 height: height * 0.3,
                 fit: BoxFit.cover,
